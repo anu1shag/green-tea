@@ -1,0 +1,31 @@
+import math
+
+def isFloat(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
+while True:
+    change_owed = input("How much change is owed: $")
+    
+    if isFloat(change_owed):
+        change_owed = round(float(change_owed) * 100)
+        if change_owed >= 0:
+           break
+        else:
+            print("Please enter an amount that is not a negative value.")
+    else:
+        print("Please enter a valid number.")
+
+quarters = change_owed // 25
+dimes = (change_owed % 25) // 10
+nickels = ((change_owed % 25) % 10) // 5
+pennies = ((change_owed % 25) % 10) % 5
+
+total_coins = quarters + dimes + nickels + pennies
+
+print("The minimum number of coins required:", total_coins)
+
+print("The specific coins you will need are: ", "Quarters: ", quarte
